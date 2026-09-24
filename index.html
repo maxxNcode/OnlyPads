@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OnlyPad — launch coins that pay your creator</title>
+<meta name="description" content="Launch a pump.fun coin tied to a creator. 60% of the creator fees it earns go straight to their wallet, and the rest pays the people holding it.">
+<meta name="theme-color" content="#0E0E0E">
+<meta property="og:title" content="OnlyPad — launch coins that pay your creator">
+<meta property="og:description" content="Memecoins that pay real creators. Launch a pump.fun coin tied to a creator.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="icon" type="image/png" href="brand/onlypad-favicon-64.png">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap top__in">
+    <a class="brand" href="#top">
+      <img class="brand__mark" src="brand/onlypad-mark.png" alt="" width="30" height="30">
+      <span class="brand__name">OnlyPad</span>
+    </a>
+    <button class="btn btn--primary btn--sm" type="button" data-launch>Launch a coin</button>
+  </div>
+</header>
+
+<main id="top">
+
+<section class="hero">
+  <div class="wrap">
+    <h1 class="h-xxl">Memecoins that pay <span class="accent">real creators.</span></h1>
+    <p class="lead">
+      Launch a pump.fun coin tied to a creator. <b>60% of the creator fees it earns go straight to
+      their wallet</b> — the rest pays the people holding it.
+    </p>
+    <div class="hero__cta">
+      <button class="btn btn--primary btn--lg" type="button" data-launch>Launch a coin</button>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="creators">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h-lg">Featured creators</h2>
+      <p class="sec-sub">The board everyone launches against. Fans pool fees into one coin, the creator's Cut is paid to their wallet.</p>
+    </div>
+    <div class="board" id="board" aria-live="polite"></div>
+  </div>
+</section>
+
+<section class="sec sec--tight">
+  <div class="wrap">
+    <div class="stats">
+      <div class="stat">
+        <div class="stat__k">Onlys launched</div>
+        <div class="stat__v" data-stat="onlys">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat__k">Creator fees earned</div>
+        <div class="stat__v" data-stat="generated">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat__k">Paid to creators</div>
+        <div class="stat__v" data-stat="paid">—</div>
+      </div>
+    </div>
+    <p class="stats__note">Simulated demo data — this build has no chain connection.</p>
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <div class="wrap">
+    <ol class="steps">
+      <li class="step">
+        <div class="step__n">01</div>
+        <h2 class="step__t">Launch on pump.fun</h2>
+        <p class="step__d">Pick a creator and launch a coin for them. It's a normal pump.fun coin, tradable everywhere.</p>
+      </li>
+      <li class="step">
+        <div class="step__n">02</div>
+        <h2 class="step__t">The Cut goes to their wallet</h2>
+        <p class="step__d">Every trade pays a creator fee. <b>60% of it is the Cut</b>, and it is paid to a wallet only that creator controls — it never mixes with any other coin.</p>
+      </li>
+      <li class="step">
+        <div class="step__n">03</div>
+        <h2 class="step__t">They claim it, or it waits</h2>
+        <p class="step__d">If the creator hasn't verified yet, the Cut sits in <b>Creator Escrow</b> and unlocks the moment they prove the handle is theirs. Nothing is withheld.</p>
+      </li>
+    </ol>
+
+    <details class="claimbox">
+      <summary class="claimbox__s">
+        Are you a creator? Your Cut may already be waiting
+        <span class="claimbox__a" aria-hidden="true">&rarr;</span>
+      </summary>
+      <div class="claimbox__b">
+        <p>A fan can launch an Only for you without asking. Your Cut accrues in <b>Creator Escrow</b> from the first trade, and pays out in one go the moment you prove the handle is yours.</p>
+        <p>Sign a challenge with your wallet, bind it to your handle, and withdraw. There is no fee to claim, and we never ask for a password or a login.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot__in">
+      <a class="brand" href="#top">
+        <img class="brand__mark" src="brand/onlypad-mark.png" alt="" width="26" height="26">
+        <span class="brand__name">OnlyPad</span>
+      </a>
+      <span class="foot__yr">&copy; <span id="yr">2026</span> OnlyPad</span>
+    </div>
+
+    <p class="foot__legal">
+      Nothing on this site is financial advice. Coins launched here are memecoins and can go to zero.
+      Creator rewards are not guaranteed and depend on trading volume.
+    </p>
+    <p class="foot__legal foot__legal--box">
+      <b>OnlyPad is not affiliated with, endorsed by, or connected to OnlyFans.</b> It does not access any
+      OnlyFans account, and it cannot pay money into one — the creator's Cut is paid in SOL to a Solana
+      wallet. This site carries no adult content and is for adults only (18+).
+    </p>
+  </div>
+</footer>
+
+<div class="toasts" id="toasts" aria-live="polite"></div>
+
+<script src="assets/js/math.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

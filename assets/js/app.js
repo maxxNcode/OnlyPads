@@ -688,11 +688,33 @@
     }).catch(function () { return null; });
   }
 
+  /* The vendored launcher is a CLAIM build, and it reaches for `window.CLAIM.wallet`
+     in two places: to find the provider it should sign with, and to read the payer's
+     public key. CLAIM does not exist on this site, so that second lookup always
+     returned null and `launch()` threw "Connect a wallet first." on every attempt,
+     with a wallet connected or not. MEASURED against the live deployment before this
+     shim existed, calling launch() with a valid fee wallet and a valid image:
+     `THREW: Connect a wallet first.`
+     Aliasing the name is enough: ONLYPAD.wallet exposes `.state.provider` and
+     `.address()`, which is exactly the pair the bundle reads, and the bundle now
+     converts the address to a PublicKey itself. */
+  function shimClaimWallet() {
+    if (root.CLAIM && root.CLAIM.wallet) return;
+    var w = root.ONLYPAD && root.ONLYPAD.wallet;
+    if (!w) return;
+    root.CLAIM = root.CLAIM || {};
+    root.CLAIM.wallet = w;
+  }
+
   function loadCore() {
     if (core) return Promise.resolve(core);
     return new Promise(function (resolve, reject) {
+      shimClaimWallet();
       var s = doc.createElement('script');
-      s.src = 'assets/js/vendor/onlypad-launch.js';
+      /* ABSOLUTE. coin.html is served at /coin/<mint>, where a relative
+         `assets/...` resolves to /coin/assets/... and 404s — the launcher would
+         simply never arrive on a coin's own page. */
+      s.src = '/assets/js/vendor/onlypad-launch.js';
       s.onload = function () {
         core = root.ONLYPADLaunch;
         if (core && core.ready) resolve(core);
@@ -792,14 +814,21 @@
           ? 'Approve the <b>' + bid + ' SOL</b> starting bid in your wallet\u2026'
           : 'Approve the coin creation in your wallet\u2026');
         return o.c.launch({
-          rpcUrl: cfg.rpcUrl,
+          /* cfg.rpcUrl is the same-origin proxy path, not the real endpoint: the
+             public Solana RPC answers 403 to a browser. web3.js Connection needs
+             an absolute URL, so resolve it here. */
+          rpcUrl: new URL(cfg.rpcUrl, location.origin).toString(),
           pinUrl: '/api/pin',
           siteUrl: cfg.siteUrl || location.origin,
           feeWallet: cfg.feeWallet,
           name: name,
           symbol: ticker,
           description: desc,
-          twitter: '',
+          /* xUrl, not ''. The wizard validates this field and the launched board
+             renders it on every card, but it was being dropped here — so every
+             coin would have launched with no X profile however carefully the
+             launcher filled the box in. */
+          twitter: xUrl,
           imageUpload: o.img,
           startingBidSol: bid
         });
@@ -992,6 +1021,9 @@
 
   /* ---------- boot ---------- */
   function boot() {
+    /* Before anything else: the vendored launcher looks for its wallet under
+       window.CLAIM, which does not exist here. See shimClaimWallet(). */
+    shimClaimWallet();
     setText('yr', new Date().getFullYear());
     renderStats();
     renderHeroSplit();
@@ -1011,8 +1043,8 @@
        waste a signature. */
     loadCfg();
 
-    /* Ask the registry once, then keep asking. The board renders the simulated
-       dataset until (and unless) the API answers with real coins. */
+    /* Ask the registry once, then keep asking. There is no simulated fallback:
+       an empty registry renders an explicit empty state, never invented coins. */
     loadLive();
     setInterval(loadLive, LIVE_MS);
 

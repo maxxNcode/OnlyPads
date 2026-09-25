@@ -161,7 +161,11 @@
    */
   function applyConfig(cfg) {
     if (!cfg) return;
-    if (cfg.rpcUrl) CFG.rpc = cfg.rpcUrl;
+    /* The server hands out a same-origin path (`/api/rpc`) rather than the real
+       endpoint, so the browser never calls a third-party RPC directly — the
+       public Solana endpoint answers 403 to anything with an Origin header.
+       web3.js needs a full URL, so resolve it against this page's origin. */
+    if (cfg.rpcUrl) CFG.rpc = new URL(cfg.rpcUrl, location.origin).toString();
     if (cfg.cluster) CFG.cluster = cfg.cluster;
     if (cfg.claimMint) CFG.claimMint = cfg.claimMint;
     emit("config", { rpc: CFG.rpc, cluster: CFG.cluster, claimMint: CFG.claimMint });

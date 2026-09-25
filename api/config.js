@@ -24,9 +24,13 @@ module.exports = http.handler(async function (req, res) {
   var payload = {
     ok: true,
     cluster: process.env.SOLANA_CLUSTER || 'mainnet-beta',
-    // A public RPC endpoint is not a secret, but it does carry an API key for
-    // Helius, so it is served from the server environment rather than committed.
-    rpcUrl: env.rpcUrl(),
+    /* The CLIENT gets the same-origin proxy, never the upstream endpoint.
+       MEASURED: api.mainnet-beta.solana.com answers HTTP 403 to any request
+       carrying an Origin header, so a browser calling it directly fails on
+       getLatestBlockhash — the first network step of a launch. It also means an
+       RPC URL carrying an API key is no longer handed to every visitor; the key
+       stays in the server environment. See api/rpc.js. */
+    rpcUrl: '/api/rpc',
     platformMint: env.platformMint(),
     // Where every launched coin's creator fee is routed, and the origin each
     // coin's own page lives on. Both are needed BEFORE the launch form is usable:

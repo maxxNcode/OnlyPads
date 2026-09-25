@@ -18,3 +18,9 @@ Thumbs.db
 
 .vercel
 .env*
+
+# Internal readiness assessment. Kept on disk, deliberately NOT published: it is a
+# candid P0/P1/P2 list against the project itself, and it went stale the moment the
+# launch path was fixed. Architecture review and the design/launch notes stay in the
+# repo — they are engineering records, not a self-assessment of readiness.
+docs/RELEASE-READINESS.md

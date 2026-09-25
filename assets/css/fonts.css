@@ -1,0 +1,41 @@
+/* ==========================================================================
+   Self-hosted webfonts - the latin subset of Plus Jakarta Sans and JetBrains Mono.
+
+   WHY THESE ARE NOT LOADED FROM fonts.googleapis.com ANY MORE:
+   a parser-inserted <link> to a third-party stylesheet blocks rendering AND
+   DOMContentLoaded AND every script after it. MEASURED on a cold cache: the Google
+   Fonts stylesheet ran 306 -> 1973 ms while every same-origin resource finished by
+   332 ms, so the page was BLANK for ~1.7 s and the sidebar could not initialise
+   until it arrived. Same-origin CSS is still render-blocking, but it is one request
+   to our own edge instead of DNS + TLS + a request to Google.
+
+   TWO FILES, NOT TEN. Google serves the identical woff2 for every requested weight
+   in a family - verified by hashing: all seven Plus Jakarta weights were the same
+   27,348 bytes, all three Mono weights the same 40,404. These are VARIABLE fonts, so
+   one file per family with a weight RANGE covers every weight. Downloading per weight
+   would have shipped 305 KB of duplicates and, worse, made the browser fetch the same
+   27 KB seven times because each weight had its own URL.
+
+   Generated from the Google CSS with a browser User-Agent (Google only serves woff2
+   to modern agents), keeping the latin block and its unicode-range so non-latin text
+   falls through to the system font. Files are unhashed, but the content for a given
+   family never changes, so vercel.json serves them immutable for a year.
+   ========================================================================== */
+
+@font-face {
+  font-family: 'Plus Jakarta Sans';
+  font-style: normal;
+  font-weight: 200 800;      /* variable axis - covers every weight the sheet uses */
+  font-display: swap;
+  src: url('../fonts/plus-jakarta-sans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  font-style: normal;
+  font-weight: 300 500;
+  font-display: swap;
+  src: url('../fonts/jetbrains-mono-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}

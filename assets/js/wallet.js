@@ -8,8 +8,12 @@
   "use strict";
 
   var CFG = {
-    // Public RPC. Swap for your own endpoint in production.
-    rpc: "https://api.mainnet-beta.solana.com",
+    /* Same-origin JSON-RPC proxy, not the public endpoint. The public one answers
+       HTTP 403 to any request carrying an Origin header, so a browser cannot use it
+       at all — this default is what runs if /api/config ever fails, and the old
+       value would have failed exactly then. A relative URL is fine here: it is only
+       ever handed to fetch(). applyConfig() replaces it with an absolute one. */
+    rpc: "/api/rpc",
     cluster: "mainnet-beta",
     // How long to wait for a balance read before giving up.
     rpcTimeout: 6000,

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OnlyPad — demo dataset.
+   OnlyPads — demo dataset.
    EVERYTHING IN THIS FILE IS SIMULATED. The creators are invented stage
    handles, not real people, and no figure here is read from chain. Each record
    carries demo:true and the UI badges it DEMO. Replace this file with a real
@@ -128,10 +128,20 @@
     });
   });
 
+  /* ---------- the contract address ----------
+     CONFIG, not simulation — this is the one value here that is meant to become real.
+     Set `address` to the mint and flip `launched: true` when $ONLYPADSPADS goes live: the
+     hero chip then shows a copyable CA by itself, with no markup change. Until then it
+     reads "To be launched" and the copy button says so rather than copying nothing. */
+  var ca = {
+    launched: false,
+    address: null
+  };
+
   /* ---------- the platform coin ---------- */
   var platform = {
     demo: true,
-    mint: '$ONLY',
+    mint: '$ONLYPADS',
     address: 'ONLYpad' + addr().slice(7),
     mcap: 1180000,
     vol24: 186400,
@@ -226,6 +236,7 @@
   root.ONLYPAD = root.ONLYPAD || {};
   root.ONLYPAD.data = {
     source: 'demo',
+    ca: ca,
     onlys: onlys,
     marquee: marquee,
     platform: platform,

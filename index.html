@@ -3,94 +3,318 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OnlyPad — launch coins that pay your creator</title>
+<title>OnlyPads — launch coins that pay your creator</title>
 <meta name="description" content="Launch a pump.fun coin tied to a creator. 60% of the creator fees it earns go straight to their wallet, and the rest pays the people holding it.">
-<meta name="theme-color" content="#0E0E0E">
-<meta property="og:title" content="OnlyPad — launch coins that pay your creator">
+<meta name="theme-color" content="#FFFFFF">
+<meta property="og:title" content="OnlyPads — launch coins that pay your creator">
 <meta property="og:description" content="Memecoins that pay real creators. Launch a pump.fun coin tied to a creator.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/styles.css">
-<link rel="icon" type="image/png" href="brand/onlypad-favicon-64.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="/assets/js/theme.js"></script>
+<script src="/assets/js/side.js"></script>
+<link rel="stylesheet" href="/assets/css/styles.css">
+<link rel="icon" type="image/png" href="/brand/onlypad-favicon-64.png">
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap top__in">
-    <a class="brand" href="#top">
-      <img class="brand__mark" src="brand/onlypad-mark.png" alt="" width="30" height="30">
-      <span class="brand__name">OnlyPad</span>
+<button class="burger" type="button" id="burger" aria-label="Open menu" aria-expanded="false">
+  <span></span><span></span><span></span>
+</button>
+
+<aside class="side" id="side" aria-label="Main">
+  <div class="side__hd">
+    <a class="brand" href="/">
+      <img class="brand__mark" src="/brand/onlypad-mark.png" alt="" width="30" height="30">
+      <span class="brand__name">OnlyPads</span>
     </a>
-    <button class="btn btn--primary btn--sm" type="button" data-launch>Launch a coin</button>
+    <button class="side__tog" type="button" id="sideTog" aria-label="Collapse menu" aria-expanded="true">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 6l-6 6 6 6"/></svg>
+    </button>
   </div>
-</header>
+
+  <nav class="side__nav">
+    <a class="side__a is-cur" href="/#board"><span class="side__ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M15.4 8.6l-2.1 4.7-4.7 2.1 2.1-4.7z"/></svg></span><span class="side__l">Discover</span></a>
+    <a class="side__a" href="/launched"><span class="side__ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c2.6 1.9 4.2 4.6 4.2 7.6L13.5 14h-3L7.8 10.6C7.8 7.6 9.4 4.9 12 3z"/><circle cx="12" cy="8.6" r="1.4"/><path d="M9 16.5c-1 1.3-1.2 3-1.2 4.5 1.5 0 3.2-.2 4.5-1.2"/></svg></span><span class="side__l">Launched</span></a>
+    <a class="side__a" href="/#creator"><span class="side__ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.4"/><path d="M4.8 20a7.2 7.2 0 0 1 14.4 0"/></svg></span><span class="side__l">Creator</span></a>
+    <a class="side__a" href="/#fees"><span class="side__ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 5L5 19"/><circle cx="7.6" cy="7.6" r="2.4"/><circle cx="16.4" cy="16.4" r="2.4"/></svg></span><span class="side__l">Fees</span></a>
+    <a class="side__a" href="/#holders"><span class="side__ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9.5" cy="8" r="3"/><path d="M3.5 19a6 6 0 0 1 12 0"/><path d="M16 5.6a3 3 0 0 1 0 4.8"/><path d="M18.5 19a5.4 5.4 0 0 0-2-4"/></svg></span><span class="side__l">Holders</span></a>
+    <a class="side__a" href="/#token"><span class="side__ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.2"/><path d="M12 7.4v9.2M14.6 9.6H10.4a1.9 1.9 0 0 0 0 3.8h3.2a1.9 1.9 0 0 1 0 3.8H9.4"/></svg></span><span class="side__l">$ONLYPADS</span></a>
+    <a class="side__a" href="/#faq"><span class="side__ic"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M9.6 9.4a2.5 2.5 0 1 1 3.1 2.6v1.6"/><circle cx="12.2" cy="16.6" r=".9" fill="currentColor" stroke="none"/></svg></span><span class="side__l">FAQ</span></a>
+  </nav>
+
+  <div class="side__ft">
+    <button class="wbtn" type="button" id="walletBtn">
+      <span class="wbtn__dot" aria-hidden="true"></span><span id="walletLabel">Connect wallet</span>
+    </button>
+    <div class="side__row">
+      <button class="themebtn" type="button" id="themeBtn" aria-label="Switch to light theme">
+        <svg class="themebtn__sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>
+        <svg class="themebtn__moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13.4A8.2 8.2 0 0 1 10.6 4a8.2 8.2 0 1 0 9.4 9.4z"/></svg>
+      </button>
+      <span class="side__tag">OnlyPads</span>
+    </div>
+    <button class="btn btn--primary btn--full" type="button" data-launch>Launch a coin</button>
+  </div>
+</aside>
+
+<div class="side__scrim" id="sideScrim" hidden></div>
 
 <main id="top">
 
 <section class="hero">
   <div class="wrap">
+    <div class="ca" id="caChip">
+      <span class="ca__k">CA</span>
+      <span class="ca__v" id="caValue">To be launched</span>
+      <button class="ca__btn" type="button" id="caBtn">
+        <svg class="ca__ic" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2.5"/><path d="M5 15h-.5A1.5 1.5 0 0 1 3 13.5v-9A1.5 1.5 0 0 1 4.5 3h9A1.5 1.5 0 0 1 15 4.5V5"/></svg>
+        <span id="caBtnLabel">Copy</span>
+      </button>
+    </div>
     <h1 class="h-xxl">Memecoins that pay <span class="accent">real creators.</span></h1>
     <p class="lead">
-      Launch a pump.fun coin tied to a creator. <b>60% of the creator fees it earns go straight to
-      their wallet</b> — the rest pays the people holding it.
+      Launch a pump.fun coin for a creator. <b>60% of its creator fees go to their wallet</b>, the rest
+      to the people holding it.
     </p>
     <div class="hero__cta">
       <button class="btn btn--primary btn--lg" type="button" data-launch>Launch a coin</button>
+      <a class="btn btn--ghost btn--lg" href="#board">See the launches</a>
     </div>
-  </div>
-</section>
+    <p class="hero__tagline">Made for the gooners, by the gooners</p>
+    <p class="hero__note">Launches are real Solana transactions, signed in your own wallet.</p>
 
-<section class="sec" id="creators">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 class="h-lg">Featured creators</h2>
-      <p class="sec-sub">The board everyone launches against. Fans pool fees into one coin, the creator's Cut is paid to their wallet.</p>
+    <div class="hero__art">
+      <aside class="split" aria-label="Where every creator fee goes">
+        <div class="split__hd">
+          <span class="split__t">Where the fee goes</span>
+          <span class="split__s">Fixed on chain at launch &middot; never changed</span>
+        </div>
+
+        <div class="split__bar" aria-hidden="true">
+          <i class="split__seg split__seg--a" id="heroSegA"></i>
+          <i class="split__seg split__seg--b" id="heroSegB"></i>
+          <i class="split__seg split__seg--c" id="heroSegC"></i>
+        </div>
+
+        <ul class="split__rows">
+          <li>
+            <span class="split__dot split__dot--a" aria-hidden="true"></span>
+            <b id="heroCut">—</b>
+            <span class="split__txt">
+              <span class="split__n">The Cut</span>
+              <span class="split__to">&rarr; the creator's wallet</span>
+            </span>
+          </li>
+          <li>
+            <span class="split__dot split__dot--b" aria-hidden="true"></span>
+            <b id="heroTips">—</b>
+            <span class="split__txt">
+              <span class="split__n">Tips</span>
+              <span class="split__to">&rarr; the Subs holding it</span>
+            </span>
+          </li>
+          <li>
+            <span class="split__dot split__dot--c" aria-hidden="true"></span>
+            <b id="heroPad">—</b>
+            <span class="split__txt">
+              <span class="split__n">The Pad</span>
+              <span class="split__to">&rarr; $ONLYPADS, half burned</span>
+            </span>
+          </li>
+        </ul>
+
+        <div class="split__foot">A creator can set the Cut between 40% and 80% before launch.</div>
+      </aside>
     </div>
-    <div class="board" id="board" aria-live="polite"></div>
   </div>
 </section>
 
 <section class="sec sec--tight">
   <div class="wrap">
+    <div class="sec-head sec-head--c">
+      <h2 class="h-xl">Every trade pays the creator.<br>Forever.</h2>
+      <p class="sec-sub">
+        Paid in SOL to a wallet only they control. The split is fixed at launch.
+      </p>
+    </div>
     <div class="stats">
       <div class="stat">
         <div class="stat__k">Onlys launched</div>
         <div class="stat__v" data-stat="onlys">—</div>
       </div>
       <div class="stat">
-        <div class="stat__k">Creator fees earned</div>
-        <div class="stat__v" data-stat="generated">—</div>
+        <div class="stat__k">Market cap</div>
+        <div class="stat__v" data-stat="mcap">—</div>
       </div>
       <div class="stat">
-        <div class="stat__k">Paid to creators</div>
-        <div class="stat__v" data-stat="paid">—</div>
+        <div class="stat__k">Volume 24h</div>
+        <div class="stat__v" data-stat="vol24">—</div>
+      </div>
+      <div class="stat">
+        <div class="stat__k">In Creator Escrow</div>
+        <div class="stat__v" data-stat="escrow">—</div>
       </div>
     </div>
-    <p class="stats__note">Simulated demo data — this build has no chain connection.</p>
+    <p class="stats__note">Read from the launch registry.</p>
+  </div>
+</section>
+
+<section class="sec" id="creator">
+  <div class="wrap">
+    <div class="sec-head sec-head--c">
+      <span class="eyebrow" id="candEyebrow">The creator</span>
+      <h2 class="h-xl" id="candTitle">$ONLYPADS pays one creator.</h2>
+      <p class="sec-sub" id="candSub">
+        $ONLYPADS pays one OnlyFans creator. Ten are shortlisted. Winner announced soon.
+      </p>
+    </div>
+
+    <div class="cand" id="candGrid" aria-live="polite"></div>
+
+    <p class="cand__foot" id="candFoot">
+      <span class="cand__dot" aria-hidden="true"></span>
+      <span id="candFootText">Winner announced soon.</span>
+    </p>
+  </div>
+</section>
+
+<section class="sec" id="fees">
+  <div class="wrap">
+    <div class="sec-head sec-head--c">
+      <h2 class="h-xl">Fixed at launch.</h2>
+      <p class="sec-sub">
+        Every trade pays a creator fee. It splits three ways, fixed on chain at launch.
+      </p>
+    </div>
+
+    <div class="flow">
+      <div class="flowcard flowcard--cut">
+        <div class="flowcard__pct" id="feeCut">—</div>
+        <div class="flowcard__t">The Cut</div>
+        <div class="flowcard__d">Paid in SOL to a wallet only the creator controls. It never mixes with any other coin.</div>
+        <div class="flowcard__to">&rarr; the creator's wallet</div>
+      </div>
+      <div class="flowcard">
+        <div class="flowcard__pct" id="feeTips">—</div>
+        <div class="flowcard__t">Tips</div>
+        <div class="flowcard__d">Fills the OnlyVault. Subs claim it by Proof of Sub — balance times how long they have held.</div>
+        <div class="flowcard__to">&rarr; OnlyVault, to Subs</div>
+      </div>
+      <div class="flowcard flowcard--dim">
+        <div class="flowcard__pct" id="feePad">—</div>
+        <div class="flowcard__t">The Pad</div>
+        <div class="flowcard__d">Buys <b>$ONLYPADS</b> on the open market. Half is burned, half drops into the Tip Jar.</div>
+        <div class="flowcard__to">&rarr; $ONLYPADS, half burned</div>
+      </div>
+    </div>
+
+    <div class="psplit psplit--3" aria-hidden="true">
+      <i class="a"></i><i class="b"></i><i class="c"></i>
+    </div>
+
+    <p class="flow__note">
+      The Cut is launcher-set between <b>40%</b> and <b>80%</b>, frozen at launch. <b>60 / 35 / 5</b> is the default.
+    </p>
+  </div>
+</section>
+
+<section class="sec" id="board">
+  <div class="wrap">
+    <div class="sec-head sec-head--c">
+      <h2 class="h-xl">Every Only launched here.</h2>
+      <p class="sec-sub">
+        One coin per creator. The bar is the creator's Cut — earned, over everything the coin generated.
+      </p>
+      <p class="sec-sub">
+        <a class="btnlink" href="/launched.html">See every launched coin &rarr;</a>
+      </p>
+    </div>
+
+    <div class="board__bar">
+      <input class="board__search" type="text" id="boardSearch" placeholder="Search a creator or an Only" aria-label="Search Onlys">
+      <div class="chips" id="boardFilters">
+        <button type="button" class="is-on" data-filter="all">All</button>
+        <button type="button" data-filter="verified">Verified</button>
+        <button type="button" data-filter="unclaimed">Unclaimed</button>
+      </div>
+      <span class="srcline" id="srcLine" title="Where the board's data comes from">
+        <span class="srcline__dot" id="srcDot"></span><span id="srcText">checking…</span>
+      </span>
+    </div>
+
+    <div class="grid" id="boardGrid"></div>
+
+    <div class="board__foot">
+      <span class="dim" id="boardMeta">—</span>
+      <span class="dim">DEMO — no figure here is read from chain.</span>
+    </div>
   </div>
 </section>
 
 <section class="sec" id="how">
   <div class="wrap">
+    <div class="sec-head sec-head--c">
+      <h2 class="h-xl">How it works.</h2>
+    </div>
     <ol class="steps">
       <li class="step">
         <div class="step__n">01</div>
-        <h2 class="step__t">Launch on pump.fun</h2>
-        <p class="step__d">Pick a creator and launch a coin for them. It's a normal pump.fun coin, tradable everywhere.</p>
+        <h3 class="step__t">Launch on pump.fun</h3>
+        <p class="step__d">Pick a creator and launch a coin for them. It is a normal pump.fun coin, tradable everywhere.</p>
       </li>
       <li class="step">
         <div class="step__n">02</div>
-        <h2 class="step__t">The Cut goes to their wallet</h2>
-        <p class="step__d">Every trade pays a creator fee. <b>60% of it is the Cut</b>, and it is paid to a wallet only that creator controls — it never mixes with any other coin.</p>
+        <h3 class="step__t">The Cut goes to their wallet</h3>
+        <p class="step__d">Every trade pays a creator fee. <b>60% of it is the Cut</b>, paid to a wallet only that creator controls — it never mixes with any other coin.</p>
       </li>
       <li class="step">
         <div class="step__n">03</div>
-        <h2 class="step__t">They claim it, or it waits</h2>
-        <p class="step__d">If the creator hasn't verified yet, the Cut sits in <b>Creator Escrow</b> and unlocks the moment they prove the handle is theirs. Nothing is withheld.</p>
+        <h3 class="step__t">They claim it, or it waits</h3>
+        <p class="step__d">If the creator has not verified yet, the Cut sits in <b>Creator Escrow</b> and unlocks the moment they prove the handle is theirs. Nothing is withheld.</p>
       </li>
     </ol>
+  </div>
+</section>
+
+<section class="sec sec--tint" id="creators">
+  <div class="wrap">
+    <div class="sec-head sec-head--c">
+      <h2 class="h-xl">If a coin was made for you,<br>your cut is already waiting.</h2>
+      <p class="sec-sub">
+        A fan can launch a coin for a creator without asking. The Cut waits in escrow until they claim it.
+      </p>
+    </div>
+
+    <div class="ofpanel">
+      <div class="ofcover">
+        <span class="tag tag--stream ofcover__mode">Creator</span>
+        <div class="ofcover__mark">ESCROW</div>
+      </div>
+      <div class="ofpanel__b">
+        <div class="ofidrow">
+          <div class="ofav">?</div>
+          <div class="ofid">
+            <div class="ofid__n">Unclaimed creators</div>
+            <div class="ofid__h">Waiting on a signed challenge</div>
+          </div>
+        </div>
+
+        <div class="ofstats">
+          <div class="is-warn"><b id="escTotal">—</b><span>In escrow</span></div>
+          <div><b id="escCount">—</b><span>Unclaimed</span></div>
+          <div><b id="escLargest">—</b><span>Largest</span></div>
+        </div>
+
+        <div class="ofstrip" id="escStrip"></div>
+
+        <div class="ofaction">
+          <button class="btn btn--primary btn--full" type="button" data-claim>Claim your Cut</button>
+          <div class="ofcue">Sign a challenge with your wallet. No password, no login, no fee to claim.</div>
+        </div>
+      </div>
+    </div>
 
     <details class="claimbox">
       <summary class="claimbox__s">
@@ -100,7 +324,118 @@
       <div class="claimbox__b">
         <p>A fan can launch an Only for you without asking. Your Cut accrues in <b>Creator Escrow</b> from the first trade, and pays out in one go the moment you prove the handle is yours.</p>
         <p>Sign a challenge with your wallet, bind it to your handle, and withdraw. There is no fee to claim, and we never ask for a password or a login.</p>
+        <p>Until a creator verifies, a Fan Launch coin is labelled <b>UNCLAIMED</b>, cannot use their likeness, and is takedown-able.</p>
       </div>
+    </details>
+  </div>
+</section>
+
+<section class="sec" id="holders">
+  <div class="wrap">
+    <div class="sec-head sec-head--c">
+      <h2 class="h-xl">Who holds, and who gets paid.</h2>
+      <p class="sec-sub">
+        Every <b>$ONLYPADS</b> holder. Weight is balance × Sub Streak, so holding longer beats buying more.
+      </p>
+    </div>
+
+    <div class="lb">
+      <div class="lb__head">
+        <span>#</span>
+        <span>Wallet</span>
+        <span>Tier</span>
+        <span class="ta-r">Held</span>
+        <span class="ta-r">Streak</span>
+        <span class="ta-r">Weight</span>
+        <span class="ta-r">Claimable</span>
+      </div>
+      <div class="lb__body" id="lbBody"></div>
+      <div class="lb__foot">
+        <span class="dim" id="lbMeta">—</span>
+        <span class="dim">Opens at launch.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="tiers">
+  <div class="wrap">
+    <div class="sec-head sec-head--c">
+      <h2 class="h-xl">Proof of Sub.</h2>
+      <p class="sec-sub">
+        <b>weight = balance × sub-streak multiplier.</b> Counted in renewals — 30-day periods.
+      </p>
+    </div>
+    <div class="tiers" id="tierList"></div>
+    <p class="tiers__note">
+      <b>Sell and your streak resets to 1.0×.</b> Claiming resets nothing.
+    </p>
+  </div>
+</section>
+
+<section class="sec" id="token">
+  <div class="wrap">
+    <div class="sec-head sec-head--c">
+      <h2 class="h-xl">The Tip Jar.</h2>
+      <p class="sec-sub">
+        The Pad's 5% of every Only buys <b>$ONLYPADS</b> — half burned, half into the Tip Jar.
+      </p>
+    </div>
+
+    <div class="jar">
+      <div class="jar__l">
+        <div class="jar__k">Next Drop in</div>
+        <div class="jar__clock" id="jarClock">—:—</div>
+        <div class="jar__bar"><i id="jarBar" style="width:0%"></i></div>
+        <div class="jar__s" id="jarSub">—</div>
+      </div>
+      <div class="jar__r">
+        <div class="jar__row"><span>In the Tip Jar</span><b id="jarPot">—</b></div>
+        <div class="jar__row"><span>Drops stacked</span><b id="jarDrops">—</b></div>
+        <div class="jar__row"><span>$ONLYPADS burned</span><b id="jarBurned">—</b></div>
+        <div class="jar__row"><span>$ONLYPADS market cap</span><b id="jarMcap">—</b></div>
+        <div class="jar__row"><span>Burn split</span><b id="jarSplit">—</b></div>
+      </div>
+    </div>
+
+    <p class="tiers__note">
+      <b>Pending launch.</b> The countdown is real; the pot is not live until $ONLYPADS deploys.
+    </p>
+    <p class="tiers__note">
+      Unclaimed Drops <b>stack</b>. Miss six, claim six in one transaction.
+    </p>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <div class="wrap">
+    <div class="sec-head sec-head--c">
+      <h2 class="h-xl">Questions.</h2>
+    </div>
+
+    <details class="qa">
+      <summary>Is this connected to OnlyFans?</summary>
+      <p><b>No.</b> OnlyPads is not affiliated with, endorsed by, or connected to OnlyFans. It does not access any OnlyFans account and cannot pay money into one. The creator's Cut is paid in SOL to a Solana wallet. OnlyPads borrows the vocabulary of subscriptions — Subs, renewals, Drops — and nothing else.</p>
+    </details>
+
+    <details class="qa">
+      <summary>Where does the money actually go?</summary>
+      <p>60% of every creator fee goes to the creator's wallet, 35% to the OnlyVault for the people holding the coin, and 5% to the Pad. The split is written on chain at launch and cannot be changed afterwards.</p>
+    </details>
+
+    <details class="qa">
+      <summary>What if the creator never claims?</summary>
+      <p>The Cut accrues in Creator Escrow and stays theirs. Nothing is withheld and nothing expires in this build. A fixed abandonment rule — unclaimed Cut returning to the OnlyVault after a set period — is under consideration so funds are not held forever.</p>
+    </details>
+
+    <details class="qa">
+      <summary>Is any of this real?</summary>
+      <p><b>Yes — and only what is.</b> Coins on the board are real pump.fun launches, verified on chain. Anything we cannot read yet shows a dash, not a guess.</p>
+    </details>
+
+    <details class="qa">
+      <summary>Who is this for?</summary>
+      <p>Adults only (18+). OnlyPads carries no adult content. A coin can only be created for a verified adult creator, and any coin created for or by a minor is taken down and burned. That rule is not negotiable.</p>
     </details>
   </div>
 </section>
@@ -111,10 +446,10 @@
   <div class="wrap">
     <div class="foot__in">
       <a class="brand" href="#top">
-        <img class="brand__mark" src="brand/onlypad-mark.png" alt="" width="26" height="26">
-        <span class="brand__name">OnlyPad</span>
+        <img class="brand__mark" src="/brand/onlypad-mark.png" alt="" width="26" height="26">
+        <span class="brand__name">OnlyPads</span>
       </a>
-      <span class="foot__yr">&copy; <span id="yr">2026</span> OnlyPad</span>
+      <span class="foot__yr">&copy; <span id="yr">2026</span> OnlyPads</span>
     </div>
 
     <p class="foot__legal">
@@ -122,17 +457,90 @@
       Creator rewards are not guaranteed and depend on trading volume.
     </p>
     <p class="foot__legal foot__legal--box">
-      <b>OnlyPad is not affiliated with, endorsed by, or connected to OnlyFans.</b> It does not access any
+      <b>OnlyPads is not affiliated with, endorsed by, or connected to OnlyFans.</b> It does not access any
       OnlyFans account, and it cannot pay money into one — the creator's Cut is paid in SOL to a Solana
       wallet. This site carries no adult content and is for adults only (18+).
     </p>
   </div>
 </footer>
 
+<div class="modal" id="launchModal" hidden>
+  <div class="modal__scrim" data-close></div>
+  <div class="modal__box" role="dialog" aria-modal="true" aria-labelledby="launchTitle">
+    <div class="modal__hd">
+      <h2 class="h-sm" id="launchTitle">Launch a coin</h2>
+      <button class="modal__x" type="button" data-close aria-label="Close">&times;</button>
+    </div>
+
+    <div class="modal__bd">
+      <div class="wiz" id="wizConnect">
+        <p class="wiz__p">A launch is a real transaction signed by your own wallet. OnlyPads never holds
+          your keys and never sees them.</p>
+        <button class="btn btn--primary btn--full" type="button" id="wizConnectBtn">Connect a wallet</button>
+        <p class="wiz__hint" id="wizConnectHint">Phantom, Solflare or Backpack.</p>
+      </div>
+
+      <form class="wiz" id="wizForm" hidden novalidate>
+        <div class="fld">
+          <label class="fld__l" for="fHandle">Creator handle <span class="fld__s">the @name this coin pays</span></label>
+          <input type="text" id="fHandle" maxlength="32" placeholder="lumen" autocomplete="off">
+        </div>
+        <div class="fld">
+          <label class="fld__l" for="fName">Coin name</label>
+          <input type="text" id="fName" maxlength="40" placeholder="Lumen" autocomplete="off">
+        </div>
+        <div class="fld">
+          <label class="fld__l" for="fTicker">Ticker <span class="fld__s">no $ — 1 to 10 characters</span></label>
+          <input type="text" id="fTicker" maxlength="10" placeholder="LUMEN" autocomplete="off">
+        </div>
+        <div class="fld">
+          <label class="fld__l" for="fX">X profile <span class="fld__s">shown on the launched coins page</span></label>
+          <input type="text" id="fX" placeholder="https://x.com/you" autocomplete="off">
+        </div>
+        <div class="fld">
+          <label class="fld__l" for="fDesc">Description <span class="fld__s">optional</span></label>
+          <textarea id="fDesc" maxlength="500" rows="3" placeholder="What does this coin pay its creator for?"></textarea>
+        </div>
+        <div class="fld">
+          <label class="fld__l" for="fImg">Image <span class="fld__s">pump.fun requires one</span></label>
+          <input type="file" id="fImg" accept="image/png,image/jpeg,image/gif,image/webp">
+        </div>
+        <div class="fld">
+          <label class="fld__l" for="fCut">The Cut <b id="cutOut">60%</b>
+            <span class="fld__s">to the creator's wallet, frozen on chain</span></label>
+          <input type="range" id="fCut" min="40" max="80" step="5" value="60">
+        </div>
+        <div class="fld">
+          <label class="fld__l" for="fBid">Starting bid <span class="fld__s">SOL, optional</span></label>
+          <input type="text" id="fBid" inputmode="decimal" placeholder="0.0" autocomplete="off">
+        </div>
+
+        <p class="wiz__warn" id="wizWarn"></p>
+        <button class="btn btn--primary btn--full" type="submit" id="wizGo">Launch on pump.fun</button>
+        <p class="wiz__hint">
+          This creates a real coin and costs real SOL. The Cut is written on chain and cannot be changed
+          afterwards. A coin launched for a creator who has not verified pays nothing out — the Cut
+          accrues in Creator Escrow until they claim it.
+        </p>
+      </form>
+
+      <div class="wiz" id="wizStatus" hidden>
+        <p class="wiz__p" id="wizSay">&nbsp;</p>
+        <div class="wiz__done" id="wizDone" hidden>
+          <p class="wiz__ok" id="wizDoneMsg"></p>
+          <a class="btn btn--primary btn--full" id="wizPump" target="_blank" rel="noopener noreferrer">Open on pump.fun</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="toasts" id="toasts" aria-live="polite"></div>
 
-<script src="assets/js/math.js"></script>
-<script src="assets/js/data.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="/assets/js/math.js"></script>
+<script src="/assets/js/candidates.js"></script>
+<script src="/assets/js/api.js"></script>
+<script src="/assets/js/wallet.js"></script>
+<script src="/assets/js/app.js"></script>
 </body>
 </html>

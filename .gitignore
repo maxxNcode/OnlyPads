@@ -1,0 +1,20 @@
+# Local dev scratch — dev-server logs, headless-browser profiles, audit output.
+# Nothing in here is source: it is regenerated on every run.
+.freebuff/
+
+# AI session memory: the internal risk register, the trademark discussion and the
+# accepted-risk records. NOT source, and NOT for a public repository.
+# This was missing until 2026-09-26, so `git add -A` would have published it —
+# the same mistake as the Vercel upload that served /.workbuddy-ai/memory/MEMORY.md
+# from the live site. Gitignored is not the same as not-committed; check this list
+# before the first commit of any new top-level directory.
+.workbuddy-ai/
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+.env
+.env.local
+
+.vercel
+.env*

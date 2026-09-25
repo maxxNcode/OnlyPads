@@ -1,5 +1,5 @@
 /* ==========================================================================
-   OnlyPad — the maths.
+   OnlyPads — the maths.
    Single source of truth. Every figure the UI shows comes from here, and if
    the Anchor program ever disagrees with this file, the UI is lying.
    Dual-mode: window.ONLYPAD.math in the browser, require()'d on the server.
@@ -26,11 +26,11 @@
 
     DROP_SEC:  900,      /* one Drop = 15 minutes, aligned to the wall clock */
     MAX_STACK: 12,       /* how many unclaimed Drops will stack */
-    MIN_HOLD:  100,      /* $ONLY under this is excluded from the weight set */
+    MIN_HOLD:  100,      /* $ONLYPADS under this is excluded from the weight set */
     BURN_SPLIT: 0.5,     /* half of every buyback burns, half fills the Tip Jar */
 
     EPOCH_SHIFT_MS: 0,   /* the demo's "skip a Drop" control moves this */
-    MINT: '$ONLY'
+    MINT: '$ONLYPADS'
   };
 
   /* ---------- Proof of Sub ----------

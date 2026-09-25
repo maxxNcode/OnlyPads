@@ -1,0 +1,53 @@
+# ============================================================================
+# What must NOT be uploaded to Vercel.
+# ============================================================================
+#
+# MEASURED, not assumed: the first deploy uploaded 2,526 files because the Vercel
+# CLI ships the WORKING DIRECTORY, not the git tree — so gitignored files go up
+# too. Verified publicly reachable on the live deployment before this file existed:
+#
+#   /.backup/index.html.1905              the previous build, served to anyone
+#   /dev-server.js                        server source
+#   /.workbuddy-ai/memory/MEMORY.md       internal project notes
+#   /db/migrations/*.sql                  the database schema
+#
+# `.env` and `.env.local` returned 404 — Vercel blocks those itself. Everything
+# else needed this list.
+#
+# If you add a top-level directory, ask whether it should be public. The default
+# for a static deploy is YES, which is the wrong default for all of these.
+# ============================================================================
+
+# the previous build, kept for reference — never served
+.backup/
+
+# local scratch: headless-browser profiles, audit scripts, screenshots, logs
+.freebuff/
+
+# AI session memory: internal notes, decisions, risk register
+.workbuddy-ai/
+
+# the database schema and the migration runner
+db/
+
+# product and architecture docs — internal
+docs/
+
+# the local dev server (it runs the api/* handlers with a service-role key)
+dev-server.js
+
+# version control and the Vercel link itself
+.git/
+.vercel/
+
+# secrets — Vercel blocks these, but they should never be in the upload either
+.env
+.env.local
+.env*.local
+
+# repo furniture that has no business being served
+.gitignore
+README.md
+LICENSE
+package.json
+package-lock.json
